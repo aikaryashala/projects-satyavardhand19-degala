@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio | Degala Satya Vardhan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --bg-color: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --card-bg: #ffffff;
+            --note-bg: #fffbeb;  /* Light Yellow for Notes */
+            --note-text: #92400e; /* Darker Yellow/Brown text */
+            --note-border: #f59e0b; /* Amber border */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 40px;
+            padding: 0 20px;
+            z-index: 10;
+            position: relative;
+            flex: 1;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-image-placeholder {
+            height: 160px;
+            width: 100%;
+            background: linear-gradient(45deg, #e2e8f0, #cbd5e1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .project-card:nth-child(1) .card-image-placeholder {
+            background: linear-gradient(120deg, #d4fcff 0%, #e0f2fe 100%);
+            color: #0284c7;
+        }
+        .project-card:nth-child(2) .card-image-placeholder {
+            background: linear-gradient(120deg, #fff1f2 0%, #ffe4e6 100%);
+            color: #e11d48;
+        }
+
+        .project-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-content h3 {
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+            font-size: 1.25rem;
+        }
+
+        .project-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: #f1f5f9;
+            color: #475569;
+            margin-bottom: 15px;
+            margin-right: 5px;
+        }
+
+        /* --- NEW STYLE FOR THE NOTE --- */
+        .project-note {
+            background-color: var(--note-bg);
+            border-left: 4px solid var(--note-border);
+            color: var(--note-text);
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            margin-top: auto;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            background: var(--primary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.2s;
+            margin-right: 10px;
+        }
+
+        .project-links a.secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .project-links a:hover {
+            background: var(--primary-dark);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MY PORTFOLIO</h1>
+    <p>Showcasing projects in Web Development & Software Engineering</p>
+</header>
+
+<div class="container">
+    <div class="projects">
+
+        <div class="project-card">
+            <div class="card-image-placeholder">WEB APPLICATION</div>
+            <div class="project-content">
+                <h3>Asciinema Studio</h3>
+                <div>
+                    <span class="tech-tag">HTML/JS/CSS</span>
+                    <span class="tech-tag">Tool</span>
+                </div>
+                <p>
+                    A powerful client-side web application designed to edit, trim, 
+                    highlight, and merge <strong>.cast</strong> files (Asciinema terminal recordings) 
+                    directly in the browser. Features a visual timeline for non-destructive editing.
+                </p>
+                <div class="project-links">
+                    <a href="https://satyavardhand19-degala.github.io/website_editing_asciinema" target="_blank">Live Demo</a>
+                    <a href="https://github.com/satyavardhand19-degala/website_editing_asciinema" class="secondary" target="_blank">Source Code</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-image-placeholder">WEB & MOBILE APP</div>
+            <div class="project-content">
+                <h3>English ↔ Telugish Dictionary</h3>
+                <div>
+                    <span class="tech-tag">Web (HTML/JS/CSS)</span>
+                    <span class="tech-tag">App (Python/SQLite)</span>
+                </div>
+                <p>
+                    A cross-platform dictionary solution available as both a 
+                    <strong>responsive website</strong> and a <strong>mobile application</strong>.
+                    Features voice input, fast SQLite search, and seamless translation between English and Telugu.
+                </p>
+
+                <div class="project-note">
+                    Note: I have worked on both the website and mobile app versions of this project.
+                </div>
+
+                <div class="project-links">
+                    <a href="https://github.com/satyavardhand19-degala/Telugish" class="secondary" target="_blank">View Project</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 | DEGALA SATYA VARDHAN | All Rights Reserved
+</footer>
+
+</body>
+</html>
